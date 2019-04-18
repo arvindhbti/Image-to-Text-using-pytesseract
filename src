@@ -1,0 +1,21 @@
+import cv2
+import pytesseract
+ 
+   
+# Read image path from command line
+imPath = "Pictures/indiaAP.jpg"
+
+#img=cv2.imread(imPath)     
+
+config = ('-l eng --oem 1 --psm 7')
+ 
+# Read image from disk
+im = cv2.imread(imPath, cv2.IMREAD_COLOR)
+
+cv2.imshow("aaa",im)
+
+# Run tesseract OCR on image
+text = pytesseract.image_to_string(im, config=config)
+ 
+# Print recognized text
+print(text)
